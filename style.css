@@ -1,17 +1,20 @@
-.card {
+.card img {
   width: 210px;
   height: 210px;
   margin: 10px;
   border-radius: 9px;
   background-size: cover; /* Make sure the image covers the div */
   background-position: center; /* Center the image within the div */
+  background-size: contain;
+  background-repeat: no-repeat; 
   border-radius: 20px;
   border: 5px solid black;   /* Add a black border */
   box-sizing: border-box;    /* Ensures padding doesn’t change dimensions */
   margin: 20px;
+
 }
 
-#rock {
+/* #rock {
   background-image: url(images/rock.png);
 }
 
@@ -21,12 +24,13 @@
 
 #scissors{
   background-image: url(images/scissors.png);
-}
+} */
 
 body {
   display: flex;
   flex-direction: column;  
   margin: 0;
+  background-color: rgb(255, 255, 255);
 }
 
 #header , #left, #main{
@@ -54,4 +58,45 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#reset img {
+  /* background-image: url("images/reset.png"); */
+  width: 6.5vh;
+  height: 6.5vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: inherit;
+  background-color: aquamarine;
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+#reset img:hover {
+  transform: scale(1.2); /* Increase size by 20% */
+} 
+
+#left_h {
+  width: 15%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#score {
+  width: 85%;
+  display: flex;
+  justify-content:end;
+  align-items: center;
+  padding: 0 15%;
+}
+
+
+p {
+  display: inline-block;
+  margin: 0 3%;
+  font-size: 34px;
+  font-family: "Comic Neue", cursive;
+  font-weight: 700;
+  font-style: italic;
 }
