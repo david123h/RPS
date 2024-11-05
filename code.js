@@ -42,14 +42,25 @@ function fight(getUserChoice) {
       (getUserChoice === "paper" && pcChose === "rock") ||
       (getUserChoice === "scissors" && pcChose == "paper")
     ) {
-      paragraph.textContent = `you chose ${getUserChoice} and the pc chose ${pcChose},  you beat the pc`;
+      paragraph.textContent = `you chose ${getUserChoice} and the pc chose ${pcChose},  you defeated the pc`;
       userCount++;
       userPoints.textContent = userCount;
     } else {
-      paragraph.textContent = `you chose ${getUserChoice} and the pc chose ${pcChose}, the pc beat you`;
+      paragraph.textContent = `you chose ${getUserChoice} and the pc chose ${pcChose}, the pc defeated you`;
       pcCount++;
       pcPoints.textContent = pcCount;
     }
+  }
+  if  (userCount == 5){
+    paragraph.textContent  = `Congratulations you won!`;
+    userCount = 0;
+    pcCount = 0;
+    setTimeout(resetTheGame, 6000);
+  } else if (pcCount == 5) {
+    paragraph.textContent  =`You lost! :(`;
+    userCount = 0;
+    pcCount = 0;
+    setTimeout(resetTheGame, 6000);
   }
 }
 
@@ -61,3 +72,13 @@ cards.forEach((card) => {
     handleClick(value);
   });
 });
+
+function resetTheGame(){
+  userCount = 0;
+  pcCount = 0;
+  userPoints.textContent = userCount;
+  pcPoints.textContent = pcCount;
+}
+
+const resetButtun = document.getElementById("reset");
+resetButtun.addEventListener(`click`, () => resetTheGame())
