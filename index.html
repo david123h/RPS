@@ -22,30 +22,33 @@
         </div>
       </div>
       <div id="score">
-        <p>you: 0</p>
-        <p>pc: 0</p>
+        <p  >you: <span id="you_p">0</span></p>
+        <p  >pc: <span id="pc_p">0</span></p>
       </div>
     </div>
 
     <div id="main">
 
       <div id="left">
-        <div class="card" id="rock">
+        <div class="card" id="rock" data-value="a">
           <img src="images/rock.png" alt="" />
         </div>
-        <div class="card" id="paper">
+        <div class="card" id="paper" data-value="b">
           <img src="images/paper.png" alt="" />
         </div>
-        <div class="card" id="scissors">
+        <div class="card" id="scissors" data-value="c">
           <img src="images/scissors.png" alt="" />
         </div>
       </div>
       
       <div id="right">
-        <div class="card" id="pc">
+        <div class="card_pc" id="pc">
           <img src="images/question.png" alt="" />
         </div>
       </div>
+    </div>
+    <div id="footer">
+      <p id="myParagraph">To start click on one of the three left cards</p>
     </div>
   </body>
 </html>
