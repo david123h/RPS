@@ -51,14 +51,16 @@ function fight(getUserChoice) {
       pcPoints.textContent = pcCount;
     }
   }
-  if  (userCount == 5){
-    paragraph.textContent  = `Congratulations you won!`;
-    setTimeout(resetTheGame, 6000);
-  } else if (pcCount == 5) {
-    paragraph.textContent  =`You lost! :(`;
-    setTimeout(resetTheGame, 6000);
-  }}
+  } wining()
 }
+
+function wining(){if  (userCount == 5){
+  paragraph.textContent  = `Congratulations you won!`;
+  setTimeout(resetTheGame, 6000);
+} else if (pcCount == 5) {
+  paragraph.textContent  =`You lost! :(`;
+  setTimeout(resetTheGame, 6000);
+}}
 
 // Select all cards with the class 'card' and add event listeners
 const cards = document.querySelectorAll(".card");
@@ -70,11 +72,11 @@ cards.forEach((card) => {
 });
 
 function resetTheGame(){
-  if (userCount < 5 && pcCount < 5){userCount = 0;
+  userCount = 0;
   pcCount = 0;
   userPoints.textContent = userCount;
-  pcPoints.textContent = pcCount;}
+  pcPoints.textContent = pcCount;
 }
 
 const resetButtun = document.getElementById("reset");
-resetButtun.addEventListener(`click`, () => resetTheGame())
+resetButtun.addEventListener(`click`,() => {if(userCount < 5 && pcCount < 5){resetTheGame()}})
