@@ -31,7 +31,7 @@ let userCount = 0;
 let pcCount = 0;
 
 function fight(getUserChoice) {
-  let pcChose = getPCchoice();
+  if (userCount < 5 && pcCount < 5){let pcChose = getPCchoice();
   console.log(`user chose ${getUserChoice} and the pc chose ${pcChose}`);
   if (pcChose === getUserChoice) {
     console.log(`you both chose ${getPCchoice} nobody is beating this round`);
@@ -53,15 +53,11 @@ function fight(getUserChoice) {
   }
   if  (userCount == 5){
     paragraph.textContent  = `Congratulations you won!`;
-    userCount = 0;
-    pcCount = 0;
     setTimeout(resetTheGame, 6000);
   } else if (pcCount == 5) {
     paragraph.textContent  =`You lost! :(`;
-    userCount = 0;
-    pcCount = 0;
     setTimeout(resetTheGame, 6000);
-  }
+  }}
 }
 
 // Select all cards with the class 'card' and add event listeners
@@ -74,10 +70,10 @@ cards.forEach((card) => {
 });
 
 function resetTheGame(){
-  userCount = 0;
+  if (userCount < 5 && pcCount < 5){userCount = 0;
   pcCount = 0;
   userPoints.textContent = userCount;
-  pcPoints.textContent = pcCount;
+  pcPoints.textContent = pcCount;}
 }
 
 const resetButtun = document.getElementById("reset");
