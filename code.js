@@ -29,6 +29,7 @@ const userPoints = document.getElementById("you_p");
 const pcPoints = document.getElementById("pc_p");
 let userCount = 0;
 let pcCount = 0;
+let timeOutId;
 
 function fight(getUserChoice) {
   if (userCount < 5 && pcCount < 5){let pcChose = getPCchoice();
@@ -51,15 +52,17 @@ function fight(getUserChoice) {
       pcPoints.textContent = pcCount;
     }
   }
-  } wining()
+  } losingColor()
+  wining()
 }
+
 
 function wining(){if  (userCount == 5){
   paragraph.textContent  = `Congratulations you won!`;
-  setTimeout(resetTheGame, 6000);
+  timeOutId = setTimeout(resetTheGame,5000)
 } else if (pcCount == 5) {
   paragraph.textContent  =`You lost! :(`;
-  setTimeout(resetTheGame, 6000);
+  timeOutId = setTimeout(resetTheGame,5000)
 }}
 
 // Select all cards with the class 'card' and add event listeners
@@ -76,7 +79,25 @@ function resetTheGame(){
   pcCount = 0;
   userPoints.textContent = userCount;
   pcPoints.textContent = pcCount;
+  userPoints.style.color = `black`;
+  pcPoints.style.color = `black`;
+}
+
+function losingColor(){
+  if (userCount > pcCount){
+    pcPoints.style.color = 'red'
+    userPoints.style.color = `black`;
+  } else if (pcCount > userCount){
+    userPoints.style.color = `red`
+    pcPoints.style.color = `black`;
+  } else {
+    userPoints.style.color = `black`;
+  pcPoints.style.color = `black`;
+  }
 }
 
 const resetButtun = document.getElementById("reset");
-resetButtun.addEventListener(`click`,() => {if(userCount < 5 && pcCount < 5){resetTheGame()}})
+// resetButtun.addEventListener(`click`,() => {if(userCount < 5 && pcCount < 5){resetTheGame()}})
+resetButtun.addEventListener(`click`,function (){resetTheGame();
+  clearTimeout(timeOutId)
+})
